@@ -1,0 +1,71 @@
+{
+  "name": "@4lch4/do-manager",
+  "description": "A CLI utility for creating, removing, or otherwise managing resources in DigitalOcean without their Doctl CLI.",
+  "version": "0.0.1",
+  "author": "4lch4",
+  "bin": {
+    "do-manager": "./bin/run"
+  },
+  "bugs": "https://github.com/4lch4/do-manager/issues",
+  "dependencies": {
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "@oclif/errors": "^1.3.4",
+    "@oclif/plugin-autocomplete": "^0.3.0",
+    "@oclif/plugin-commands": "^1.3.0",
+    "@oclif/plugin-help": "^3",
+    "@oclif/plugin-not-found": "^1.2.4",
+    "@oclif/plugin-warn-if-update-available": "^1.7.0",
+    "enquirer": "^2.3.6",
+    "fs-extra": "^9.1.0",
+    "inquirer": "^7.3.3",
+    "ora": "^5.3.0",
+    "tslib": "^1"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1",
+    "@oclif/test": "^1",
+    "@types/chai": "^4",
+    "@types/fs-extra": "^9.0.7",
+    "@types/inquirer": "^7.3.1",
+    "@types/mocha": "^5",
+    "@types/node": "^14.14.31",
+    "chai": "^4",
+    "globby": "^10",
+    "mocha": "^5",
+    "nyc": "^14",
+    "prettier": "^2.2.1",
+    "ts-node": "^8",
+    "typescript": "^3.3"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/dist",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "homepage": "https://github.com/4lch4/do-manager",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "oclif": {
+    "commands": "./dist/commands",
+    "bin": "do-manager",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": "4lch4/do-manager",
+  "scripts": {
+    "postpack": "rm -f oclif.manifest.json",
+    "prepack": "rm -rf dist && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
+    "version": "oclif-dev readme && git add README.md"
+  },
+  "types": "dist/index.d.ts"
+}
